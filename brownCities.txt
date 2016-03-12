@@ -1,0 +1,7 @@
+Boston 3 New_York
+New_York 8 Buffalo
+Buffalo 7 Pittsburgh
+Buffalo 7 Detroit
+New_York 0 Philadelphia
+Philadelphia 3 Washington
+Washington 6 Pittsburgh
