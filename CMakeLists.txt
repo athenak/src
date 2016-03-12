@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.3)
-project(src)
+project(powerGrid)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
@@ -34,4 +34,4 @@ set(SOURCE_FILES
     Uranium.cpp
     Uranium.h)
 
-add_executable(src ${SOURCE_FILES})
+add_executable(powerGrid ${SOURCE_FILES})

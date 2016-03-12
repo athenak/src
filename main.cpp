@@ -62,9 +62,6 @@ int playID = 0;
 // player Name
 string playerName;
 
-// company name of the player
-string playerCompanyName;
-
 // currency
 int playerElectros = 0;
 
@@ -413,17 +410,6 @@ int main()
 						cin >> playerName;
 					}
 
-					// enter Company name associated with the user (player)
-					cout << "Please enter your Company name: " << endl;
-					cin >> playerCompanyName;
-
-					// making sure a Company name is entered
-					while(playerCompanyName == "")
-					{
-						cout << endl << "Please enter your Company name: " << endl;
-						cin >> playerCompanyName;
-					  }
-
 				cout << "Please enter the color of your houses from the following choices: " << endl << endl;
 				DisplayColorChoiceMenu();
 				cin >> colHouse;
@@ -460,13 +446,13 @@ int main()
 			   						goodColor = false;
 			   						}else{
 			   						   goodColor = true;
-			   						   players[j] = Player(playID, playerName,colorHouse,HOUSESPERPLAYER,ELEKTROSPERPLAYER,playerCompanyName);
+			   						   players[j] = Player(playID, playerName,colorHouse,HOUSESPERPLAYER,ELEKTROSPERPLAYER);
 									   players[j].displayMessage();
 									   break;
 			   						}
 			   				}else{
 									goodColor = true;
-									players[j] = Player(playID, playerName,colorHouse,HOUSESPERPLAYER,ELEKTROSPERPLAYER,playerCompanyName);
+									players[j] = Player(playID, playerName,colorHouse,HOUSESPERPLAYER,ELEKTROSPERPLAYER);
 									players[j].displayMessage();
 									break;
 			   					}
