@@ -62,9 +62,6 @@ int playID = 0;
 // player Name
 string playerName;
 
-// company name of the player
-string playerCompanyName;
-
 // currency
 int playerElectros = 0;
 
@@ -127,6 +124,8 @@ int electrosPerNumCitiesSupplied [21] = { 10, 22, 33, 44, 54, 64, 73, 82, 90, 98
 
 int gameStartChoice;
 GameStates gameState;
+
+int powerPlantBid = -1;
 
 // define gameStartChoice function, a menu that prompts the user if they want to play or exit,etc
 
@@ -248,49 +247,49 @@ int main()
         //load the powerPlant cards into the file
 
         // PowerPlant Card Constructors for all cards
-        PowerPlant powerPlant03(3, 2, 4,"Oil", 1, false, false);
-        PowerPlant powerPlant04(4, 2, 4,"Coal", 1, false, false);
-        PowerPlant powerPlant05(5, 2, 4,"Oil or Coal", 1, true, false);
-        PowerPlant powerPlant06(6, 1, 2,"Garbage", 1, false, false);
-        PowerPlant powerPlant07(7, 3, 6,"Oil", 2, false, false);
-        PowerPlant powerPlant08(8, 3, 6,"Coal", 2, false, false);
-        PowerPlant powerPlant09(9, 1, 2,"Oil", 1, false, false);
-        PowerPlant powerPlant10(10, 2, 4,"Coal", 2, false, false);
-        PowerPlant powerPlant11(11, 1, 2,"Uranium", 2, false, false);
-        PowerPlant powerPlant12(12, 2, 4,"Oil or Coal", 2, true, false);
-        PowerPlant powerPlant13(13, 0, 0,"Ecological", 1, false, true);
-        PowerPlant powerPlant14(14, 2, 4,"Garbage", 2, false, false);
-        PowerPlant powerPlant15(15, 2, 4,"Coal", 3, false, false);
-        PowerPlant powerPlant16(16, 2, 4,"Oil", 3, false, false);
-        PowerPlant powerPlant17(17, 1, 2,"Uranium", 2, false, false);
-        PowerPlant powerPlant18(18, 0, 0,"Ecological", 2, false, true);
-        PowerPlant powerPlant19(19, 2, 4,"Garbage", 3, false, false);
-        PowerPlant powerPlant20(20, 3, 6,"Coal", 5, false, false);
-        PowerPlant powerPlant21(21, 2, 4,"Oil or Coal", 4, true, false);
-        PowerPlant powerPlant22(22, 0, 0,"Ecological", 2, false, true);
-        PowerPlant powerPlant23(23, 3, 6,"Uranium", 3, false, false);
-        PowerPlant powerPlant24(24, 2, 4,"Garbage", 4, false, false);
-        PowerPlant powerPlant25(25, 2, 4,"Coal", 5, false, false);
-        PowerPlant powerPlant26(26, 2, 4,"Oil", 5, false, false);
-        PowerPlant powerPlant27(27, 0, 0,"Ecological", 3, false, true);
-        PowerPlant powerPlant28(28, 1, 2,"Uranium", 4, false, false);
-        PowerPlant powerPlant29(29, 1, 2,"Oil or Coal", 4, true, false);
-        PowerPlant powerPlant30(30, 3, 6,"Garbage", 6, false, false);
-        PowerPlant powerPlant31(31, 3, 6,"Coal", 6, false, false);
-        PowerPlant powerPlant32(32, 3, 6,"Oil", 6, false, false);
-        PowerPlant powerPlant33(33, 0, 0,"Ecological", 4, false, true);
-        PowerPlant powerPlant34(34, 1, 2,"Uranium", 5, false, false);
-        PowerPlant powerPlant35(35, 1, 2,"Oil", 5, false, false);
-        PowerPlant powerPlant36(36, 3, 6,"Coal", 7, false, false);
-        PowerPlant powerPlant37(37, 0, 0,"Ecological", 4, false, true);
-        PowerPlant powerPlant38(38, 3, 6,"Garbage", 7, false, false);
-        PowerPlant powerPlant39(39, 1, 2,"Uranium", 6, false, false);
-        PowerPlant powerPlant40(40, 2, 4,"Oil", 6, false, false);
-        PowerPlant powerPlant42(42, 2, 4,"Coal", 6, false, false);
-        PowerPlant powerPlant44(44, 0, 0,"Ecological", 5, false, true);
-        PowerPlant powerPlant46(46, 3, 6,"Oil or Coal", 7, true, false);
-        PowerPlant powerPlant50(50, 0, 0,"Ecological", 6, false, true);
-        PowerPlant powerPlant0(0, 0, 0,"Step 3", 0, false, false);  // THE "STEP 3" CARD
+        PowerPlant powerPlant03(3, 2, 4,"Oil", 1, false, false, false, false);
+        PowerPlant powerPlant04(4, 2, 4,"Coal", 1, false, false, false, false);
+        PowerPlant powerPlant05(5, 2, 4,"Oil or Coal", 1, true, false, false, false);
+        PowerPlant powerPlant06(6, 1, 2,"Garbage", 1, false, false, false, false);
+        PowerPlant powerPlant07(7, 3, 6,"Oil", 2, false, false, false, false);
+        PowerPlant powerPlant08(8, 3, 6,"Coal", 2, false, false, false, false);
+        PowerPlant powerPlant09(9, 1, 2,"Oil", 1, false, false, false, false);
+        PowerPlant powerPlant10(10, 2, 4,"Coal", 2, false, false, false, false);
+        PowerPlant powerPlant11(11, 1, 2,"Uranium", 2, false, false, false, false);
+        PowerPlant powerPlant12(12, 2, 4,"Oil or Coal", 2, true, false, false, false);
+        PowerPlant powerPlant13(13, 0, 0,"Ecological", 1, false, true, false, false);
+        PowerPlant powerPlant14(14, 2, 4,"Garbage", 2, false, false, false, false);
+        PowerPlant powerPlant15(15, 2, 4,"Coal", 3, false, false, false, false);
+        PowerPlant powerPlant16(16, 2, 4,"Oil", 3, false, false, false, false);
+        PowerPlant powerPlant17(17, 1, 2,"Uranium", 2, false, false, false, false);
+        PowerPlant powerPlant18(18, 0, 0,"Ecological", 2, false, true, false, false);
+        PowerPlant powerPlant19(19, 2, 4,"Garbage", 3, false, false, false, false);
+        PowerPlant powerPlant20(20, 3, 6,"Coal", 5, false, false, false, false);
+        PowerPlant powerPlant21(21, 2, 4,"Oil or Coal", 4, true, false, false, false);
+        PowerPlant powerPlant22(22, 0, 0,"Ecological", 2, false, true, false, false);
+        PowerPlant powerPlant23(23, 3, 6,"Uranium", 3, false, false, false, false);
+        PowerPlant powerPlant24(24, 2, 4,"Garbage", 4, false, false, false, false);
+        PowerPlant powerPlant25(25, 2, 4,"Coal", 5, false, false, false, false);
+        PowerPlant powerPlant26(26, 2, 4,"Oil", 5, false, false, false, false);
+        PowerPlant powerPlant27(27, 0, 0,"Ecological", 3, false, true, false, false);
+        PowerPlant powerPlant28(28, 1, 2,"Uranium", 4, false, false, false, false);
+        PowerPlant powerPlant29(29, 1, 2,"Oil or Coal", 4, true, false, false, false);
+        PowerPlant powerPlant30(30, 3, 6,"Garbage", 6, false, false, false, false);
+        PowerPlant powerPlant31(31, 3, 6,"Coal", 6, false, false, false, false);
+        PowerPlant powerPlant32(32, 3, 6,"Oil", 6, false, false, false, false);
+        PowerPlant powerPlant33(33, 0, 0,"Ecological", 4, false, true, false, false);
+        PowerPlant powerPlant34(34, 1, 2,"Uranium", 5, false, false, false, false);
+        PowerPlant powerPlant35(35, 1, 2,"Oil", 5, false, false, false, false);
+        PowerPlant powerPlant36(36, 3, 6,"Coal", 7, false, false, false, false);
+        PowerPlant powerPlant37(37, 0, 0,"Ecological", 4, false, true, false, false);
+        PowerPlant powerPlant38(38, 3, 6,"Garbage", 7, false, false, false, false);
+        PowerPlant powerPlant39(39, 1, 2,"Uranium", 6, false, false, false, false);
+        PowerPlant powerPlant40(40, 2, 4,"Oil", 6, false, false, false, false);
+        PowerPlant powerPlant42(42, 2, 4,"Coal", 6, false, false, false, false);
+        PowerPlant powerPlant44(44, 0, 0,"Ecological", 5, false, true, false, false);
+        PowerPlant powerPlant46(46, 3, 6,"Oil or Coal", 7, true, false, false, false);
+        PowerPlant powerPlant50(50, 0, 0,"Ecological", 6, false, true, false, false);
+        PowerPlant powerPlant0(0, 0, 0,"Step 3", 0, false, false, false, false);  // THE "STEP 3" CARD
 
 
         // writing the PowerPlant constructors above to a binary file called powerPlant.dat
@@ -413,17 +412,6 @@ int main()
 						cin >> playerName;
 					}
 
-					// enter Company name associated with the user (player)
-					cout << "Please enter your Company name: " << endl;
-					cin >> playerCompanyName;
-
-					// making sure a Company name is entered
-					while(playerCompanyName == "")
-					{
-						cout << endl << "Please enter your Company name: " << endl;
-						cin >> playerCompanyName;
-					  }
-
 				cout << "Please enter the color of your houses from the following choices: " << endl << endl;
 				DisplayColorChoiceMenu();
 				cin >> colHouse;
@@ -460,13 +448,13 @@ int main()
 			   						goodColor = false;
 			   						}else{
 			   						   goodColor = true;
-			   						   players[j] = Player(playID, playerName,colorHouse,HOUSESPERPLAYER,ELEKTROSPERPLAYER,playerCompanyName);
+			   						   players[j] = Player(playID, playerName,colorHouse,HOUSESPERPLAYER,ELEKTROSPERPLAYER);
 									   players[j].displayMessage();
 									   break;
 			   						}
 			   				}else{
 									goodColor = true;
-									players[j] = Player(playID, playerName,colorHouse,HOUSESPERPLAYER,ELEKTROSPERPLAYER,playerCompanyName);
+									players[j] = Player(playID, playerName,colorHouse,HOUSESPERPLAYER,ELEKTROSPERPLAYER);
 									players[j].displayMessage();
 									break;
 			   					}
@@ -663,7 +651,7 @@ int main()
             binaryio.read(reinterpret_cast<char*>(&powerplantNew), sizeof(PowerPlant));
            // powerplantNew.displayMessage();
             myPowerPlant.push_back((
-                                    PowerPlant(powerplantNew.getMinBid(), powerplantNew.getMinResToProdPow(), powerplantNew.getStoreAmountRes(), powerplantNew.getResType(), powerplantNew.getHowManyCitiesCanPower(), powerplantNew.getIsHybrid(), powerplantNew.getIsEcolOrFusion())));
+                                    PowerPlant(powerplantNew.getMinBid(), powerplantNew.getMinResToProdPow(), powerplantNew.getStoreAmountRes(), powerplantNew.getResType(), powerplantNew.getHowManyCitiesCanPower(), powerplantNew.getIsHybrid(), powerplantNew.getIsEcolOrFusion(), powerplantNew.getIsBought(), powerplantNew.getIsPowered())));
         }
 
         cout << "PHASE 1 of the GAME:   You can only bid on the following 4 cards to start " << endl << endl;
@@ -795,6 +783,9 @@ int main()
                                     cout << endl;
                                     cout << "The cheapest PowerPlant for auction is PowerPlant # : " << myPowerPlant[0].getMinBid() << endl;
                                     cout << "The mininum bid is " << myPowerPlant[0].getMinBid() << " Elektros"  << endl;
+									cout << "Which Power Plant do you want to bid on ? "  << endl;
+									cin >> powerPlantBid;
+									if(powerPlantBid)
                                     cout << "How much would you like to bid on the Power Plant up for auction?" << endl;
                                     int paymentPlant;
                                     cin >> paymentPlant;

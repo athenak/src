@@ -30,7 +30,9 @@ public:
 
     Player(int playID, string playName, string playColor, int numOfHouses,int electros,string powerCompanyNme);
 
-    ~Player();  // Destructor
+	Player(int i, string basic_string, string basicString, const int i1, const int i2);
+
+	~Player();  // Destructor
 
     int getPlayerID();
 
@@ -41,8 +43,6 @@ public:
     int getPlayerElectros();
 
     int getPlayerNumberOfHouses();
-
-    string getPowerCompanyName();
 
     int getPlayerNumberAreaOnMap();
 
@@ -61,8 +61,6 @@ public:
 
     void setPlayerNumberOfHouses(int house);
 
-    void setPowerCompanyName(string companyNme);
-
     void setPlayerNumberAreaOnMap(int mapAreaNumber);
 
     void setPlayerTurn(int turn);
@@ -77,7 +75,6 @@ private:
     string playerColor;
     int playerElectros;
     int playerNumberOfHouses;
-    string powerCompanyName;
     int playerNumberAreaOnMap;
     int playerTurn;
     int playerNumberOfPowerPlants;

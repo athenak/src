@@ -21,7 +21,7 @@ PowerPlant::PowerPlant()
 
 
 // constructor
-PowerPlant::PowerPlant(int mBid, int mResToProdPow, int storeAmtRes,string resTyp, int howManyCities, bool isHyb, bool isEcoOrFus)
+PowerPlant::PowerPlant(int mBid, int mResToProdPow, int storeAmtRes,string resTyp, int howManyCities, bool isHyb, bool isEcoOrFus, bool isBought, bool isPowered)
 {
     setMinBid(mBid);
     setMinResToProdPow(mResToProdPow);
@@ -30,6 +30,9 @@ PowerPlant::PowerPlant(int mBid, int mResToProdPow, int storeAmtRes,string resTy
     setHowManyCitiesCanPower(howManyCities);
     setIsHybrid(isHyb);
     setIsEcolOrFusion(isEcoOrFus);
+    setIsBought(isBought);
+    setIsPowered(isPowered);
+
 }
 // Getters
 int PowerPlant::getMinBid()
@@ -66,9 +69,23 @@ bool PowerPlant::getIsEcolOrFusion()
 {
     return isEcolOrFusion;
 }
+
+bool PowerPlant::getIsBought()
+{
+    return isBought;
+}
+
+bool PowerPlant::getIsPowered()
+{
+    return isPowered;
+}
+
+
 void PowerPlant::setNumberPowerPlants(int powerPlants){
 	numberPowerPlants += powerPlants;
 }
+
+
 
 // Setters
 void PowerPlant::setMinBid(int bid)
@@ -106,13 +123,32 @@ void PowerPlant::setIsEcolOrFusion(bool isEcoOrFus)
     isEcolOrFusion = isEcoOrFus;
 }
 
+void PowerPlant::setIsBought(bool isBought)
+{
+    this->isBought = isBought;
+}
+
+void PowerPlant::setIsPowered(bool isPowered)
+{
+    this->isPowered = isPowered;
+}
+
 // function to display Power Plant parameters and information
 void PowerPlant::displayMessage(){
+
 	cout << "Power Plant Number for bidding: "<< getMinBid()<<endl;
     cout << "The minimum bid for this Power Plant is " << getMinBid() << endl;
     cout << "The minimum number of resources needed to produce power for this Power Plant is " << getMinResToProdPow() << endl;
     cout << "The maximum amount of resources that can be stored in this plant is " << getStoreAmountRes() << ". " << endl << "This power plant uses " <<  getResType() << " to run. " << endl;
     cout << "It can power " << getHowManyCitiesCanPower() << " number of cities." << endl << endl;
+
+    cout << (getIsBought() ? " Sorry, this Power Plant is not available, it is already BOUGHT!"
+                           : "This Power Plant is still available for BIDDING!") << endl;
+    cout << endl << endl;
+
+    cout << (getIsPowered() ? " Sorry, this Power Plant needs to be acitvated or POWERED ON!"
+                           : "This Power Plant is ACTIVE and supplying energy to cities!") << endl;
+    cout << endl << endl;
 }
 
 PowerPlant::~PowerPlant()  // Destructor

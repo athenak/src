@@ -23,7 +23,7 @@ class PowerPlant
 public:
 
     PowerPlant();
-    PowerPlant(int mBid, int mResToProdPow, int storeAmtRes,string resTyp, int howManyCities, bool isHyb, bool isEcoOrFus);
+    PowerPlant(int mBid, int mResToProdPow, int storeAmtRes,string resTyp, int howManyCities, bool isHyb, bool isEcoOrFus, bool isBought, bool isPowered);
     ~PowerPlant();  // Destructor
 
     // Getters
@@ -41,6 +41,10 @@ public:
 
     bool getIsEcolOrFusion();
 
+    bool getIsBought();
+
+    bool getIsPowered();
+
     // Setters
     void setMinBid(int bid);
 
@@ -56,9 +60,14 @@ public:
 
     void setIsEcolOrFusion(bool isEcoOrFus);
 
+    void setIsBought(bool isBought);
+
+    void setIsPowered(bool isPowered);
+
     void displayMessage();
 
 	void setNumberPowerPlants(int powerPlants);
+
 
 private:
     int minBid;
@@ -69,6 +78,8 @@ private:
     bool isHybrid;
     bool isEcolOrFusion;
     int numberPowerPlants;
+    bool isBought;
+    bool isPowered;
 };
 
 #endif /* PowerPlant_h */

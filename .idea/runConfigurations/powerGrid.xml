@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="powerGrid" type="CMakeRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="powerGrid" TARGET_NAME="powerGrid" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="powerGrid" RUN_TARGET_NAME="powerGrid">
+    <envs />
+    <method />
+  </configuration>
+</component>

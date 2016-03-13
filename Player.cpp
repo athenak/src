@@ -25,12 +25,11 @@ Player::Player(string playName)
 }
 
 // constructor
-Player::Player(int playID, string playName, string playColor, int numOfHouses,int electros,string powerCompanyNme)
+Player::Player(int playID, string playName, string playColor, int numOfHouses,int electros)
 {
     setPlayerID(playID);
     setPlayerName(playName);
     setPlayerColor(playColor);
-    setPowerCompanyName(powerCompanyNme);
 	setPlayerNumberOfHouses(numOfHouses);
 	setPlayerElectros(electros);
 }
@@ -65,11 +64,6 @@ int Player::getPlayerElectros()
 int Player::getPlayerNumberOfHouses()
 {
     return playerNumberOfHouses;  ///???
-}
-
-string Player::getPowerCompanyName()
-{
-    return powerCompanyName;
 }
 
 int Player::getPlayerNumberAreaOnMap()
@@ -113,11 +107,6 @@ void Player::setPlayerNumberOfHouses(int house)
     playerNumberOfHouses = house;
 }
 
-void Player::setPowerCompanyName(string companyNme)
-{
-    powerCompanyName = companyNme;
-}
-
 void Player::setPlayerNumberAreaOnMap(int mapAreaNumber)
 {
     playerNumberAreaOnMap = mapAreaNumber;
@@ -136,7 +125,6 @@ void Player::setPlayerNumberOfPowerPlants(int powerPlant){
 // function to display player parameters set
 void Player::displayMessage(){
     cout << "The name of the player is  " << getPlayerName() << endl;
-    cout << "The name of the Company is  " << getPowerCompanyName() << endl;
     cout << "The player has "<<getPlayerNumberOfHouses()<<" houses to start and "<<getPlayerElectros()<<" Elektros.\nThe color of the houses chosen by this player is " <<  getPlayerColor() << endl;
     cout << "One of each player's house is placed on the start house (representing 0) in the scoring track." << endl;
 }
